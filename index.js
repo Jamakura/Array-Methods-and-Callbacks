@@ -85,18 +85,28 @@ function getWinners(callBack, data) {
     }
 getWinners(getFinals, fifaData);
 console.log(getWinners(getFinals, fifaData))
-/* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
+/* Task 6: Implement a higher-order function called `getWinnersByYear`
+ that accepts the following parameters and returns a set of strings 
+ "In {year}, {country} won the world cup!" 
 
 Parameters: 
  * callback function getWinners
  * callback function getYears
+ * 
+ * 
  */
 
-function getWinnersByYear() {
+function getWinnersByYear(cb1, cb2) {
+    const winner = cb1(getFinals, fifaData);
+    const year = cb2(getFinals, fifaData);
 
+    for (let i = 0; i < winner.length; i++); {
+
+  console.log(`In ${year[8]},${winner[8]} won the world cup!`);
+    }
 };
 
-getWinnersByYear();
+getWinnersByYear(getWinners, getYears);
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
