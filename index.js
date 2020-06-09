@@ -51,14 +51,6 @@ console.log(getFinals(fifaData));
  the callback function `getFinals`, and returns an array called `years` 
  containing all of the years in the dataset */
 
- /*function getYears(data,callback) {
-
-    return callback(data).map(e=>e["Year"]);
-
-};
-
-console.log(getYears(fifaData,getFinals));*/
-
 function getYears(callBack,data) {
     let array = callBack(data);
     let newArray = array.map((years) => {
@@ -68,16 +60,31 @@ function getYears(callBack,data) {
 };
 console.log(getYears(getFinals,fifaData));
 
-/* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+/* Task 5: Implement a higher-order function called `getWinners`, that 
+accepts the callback function `getFinals()` and determine the winner 
+(home or away) of each `finals` game. Return the name of all winning 
+countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
 
-    /* code here */
 
-};
-
-getWinners();
-
+function getWinners(callBack, data) {
+    let array = callBack(data);
+    let newArray = array.map((data) => {
+        if (data["Home Team Goals"] > data["Away Team Goals"]){
+            return data ["Home Team Name"];
+        }
+        else if(data["Home Team Goals"] === data["Away Team Goals"]){
+            return data[`${["Home Team Name"]} tied with ${["Away Team Name"]}`];
+        }
+        else(data["Home Team Goals"] < data ["Away Teal Goals"])
+            return data["Away Team Name"];
+    
+        });
+        
+        return newArray;
+    }
+getWinners(getFinals, fifaData);
+console.log(getWinners(getFinals, fifaData))
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
 Parameters: 
@@ -85,7 +92,7 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
+function getWinnersByYear() {
 
 };
 
